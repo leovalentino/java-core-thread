@@ -35,8 +35,10 @@ src/main/java/com/leolabs/threads/
 │   └── ExecutorLab.java
 ├── futures/                   # Callable and Future interfaces
 │   └── FutureLab.java
-└── forkjoin/                  # ForkJoinPool and parallel streams
-    └── ParallelStreamLab.java
+├── forkjoin/                  # ForkJoinPool and parallel streams
+│   └── ParallelStreamLab.java
+└── async/                     # CompletableFuture and async composition
+    └── CompletableFutureLab.java
 ```
 
 ## 🧪 Labs
@@ -127,6 +129,17 @@ mvn exec:java -Dexec.mainClass="com.leolabs.threads.forkjoin.ParallelStreamLab"
 - Measuring speedup factor and efficiency
 - When to use parallel vs sequential streams
 
+### 9. CompletableFuture (`CompletableFutureLab.java`)
+**Concepts**: Asynchronous task composition, non-blocking operations
+```bash
+mvn exec:java -Dexec.mainClass="com.leolabs.threads.async.CompletableFutureLab"
+```
+**Key Takeaways**:
+- Creating asynchronous tasks with `supplyAsync()`
+- Combining multiple futures with `thenCombine()`
+- Performance benefits of parallel service calls
+- Non-blocking composition patterns
+
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -152,7 +165,7 @@ mvn exec:java -Dexec.mainClass="com.leolabs.threads.forkjoin.ParallelStreamLab"
 4. **Run all labs sequentially**:
    ```bash
    # Create a simple script to run all demos
-   for lab in basics lifecycle safety performance background executors futures forkjoin; do
+   for lab in basics lifecycle safety performance background executors futures forkjoin async; do
      echo "=== Running $lab lab ==="
      mvn exec:java -Dexec.mainClass="com.leolabs.threads.$lab.*" 2>/dev/null || true
      echo ""
@@ -218,13 +231,13 @@ mvn exec:java -Dexec.mainClass="com.leolabs.threads.forkjoin.ParallelStreamLab"
 
 After mastering these labs, consider exploring:
 
-1. **CompletableFuture**: Advanced asynchronous programming in modern Java
+1. **Reactive Programming**: Project Reactor or RxJava for async streams
 2. **Concurrent Collections**: `ConcurrentHashMap`, `CopyOnWriteArrayList`
 3. **Advanced Synchronization**: `ReentrantLock`, `Semaphore`, `CountDownLatch`
 4. **ScheduledExecutorService**: Delayed and periodic task execution
 5. **Virtual Threads**: Project Loom's lightweight threads (Java 19+)
 6. **Custom ForkJoinPool**: Creating and configuring custom thread pools
-7. **Reactive Programming**: Project Reactor or RxJava for async streams
+7. **Java 21 Structured Concurrency**: Preview feature for managing related tasks
 
 ## 🤝 Contributing
 
