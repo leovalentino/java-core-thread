@@ -37,8 +37,10 @@ src/main/java/com/leolabs/threads/
 │   └── FutureLab.java
 ├── forkjoin/                  # ForkJoinPool and parallel streams
 │   └── ParallelStreamLab.java
-└── async/                     # CompletableFuture and async composition
-    └── CompletableFutureLab.java
+├── async/                     # CompletableFuture and async composition
+│   └── CompletableFutureLab.java
+└── modern/                    # Java 21+ features (Virtual Threads)
+    └── VirtualThreadsLab.java
 ```
 
 ## 🧪 Labs
@@ -140,6 +142,17 @@ mvn exec:java -Dexec.mainClass="com.leolabs.threads.async.CompletableFutureLab"
 - Performance benefits of parallel service calls
 - Non-blocking composition patterns
 
+### 10. Virtual Threads (`VirtualThreadsLab.java`)
+**Concepts**: Java 21 Virtual Threads, Project Loom, high-throughput concurrency
+```bash
+mvn exec:java -Dexec.mainClass="com.leolabs.threads.modern.VirtualThreadsLab"
+```
+**Key Takeaways**:
+- Lightweight threads managed by the JVM (not OS)
+- Handling 100,000+ concurrent I/O operations
+- Structured concurrency with try-with-resources
+- Massive throughput compared to platform threads
+
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -165,7 +178,7 @@ mvn exec:java -Dexec.mainClass="com.leolabs.threads.async.CompletableFutureLab"
 4. **Run all labs sequentially**:
    ```bash
    # Create a simple script to run all demos
-   for lab in basics lifecycle safety performance background executors futures forkjoin async; do
+   for lab in basics lifecycle safety performance background executors futures forkjoin async modern; do
      echo "=== Running $lab lab ==="
      mvn exec:java -Dexec.mainClass="com.leolabs.threads.$lab.*" 2>/dev/null || true
      echo ""
@@ -235,9 +248,9 @@ After mastering these labs, consider exploring:
 2. **Concurrent Collections**: `ConcurrentHashMap`, `CopyOnWriteArrayList`
 3. **Advanced Synchronization**: `ReentrantLock`, `Semaphore`, `CountDownLatch`
 4. **ScheduledExecutorService**: Delayed and periodic task execution
-5. **Virtual Threads**: Project Loom's lightweight threads (Java 19+)
-6. **Custom ForkJoinPool**: Creating and configuring custom thread pools
-7. **Java 21 Structured Concurrency**: Preview feature for managing related tasks
+5. **Structured Concurrency**: Java 21+ feature for managing related tasks
+6. **Scoped Values**: Alternative to thread-local for virtual threads
+7. **Reactive Streams**: Backpressure and flow control in async systems
 
 ## 🤝 Contributing
 
