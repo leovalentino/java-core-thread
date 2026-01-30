@@ -33,8 +33,10 @@ src/main/java/com/leolabs/threads/
 │   └── AutoSaveLab.java
 ├── executors/                 # Thread pools and executors
 │   └── ExecutorLab.java
-└── futures/                   # Callable and Future interfaces
-    └── FutureLab.java
+├── futures/                   # Callable and Future interfaces
+│   └── FutureLab.java
+└── forkjoin/                  # ForkJoinPool and parallel streams
+    └── ParallelStreamLab.java
 ```
 
 ## 🧪 Labs
@@ -114,6 +116,17 @@ mvn exec:java -Dexec.mainClass="com.leolabs.threads.futures.FutureLab"
 - Non-blocking task submission vs blocking result retrieval
 - Real-world analogy: restaurant order tickets
 
+### 8. ForkJoinPool & Parallel Streams (`ParallelStreamLab.java`)
+**Concepts**: Parallel streams, ForkJoinPool, CPU-bound optimization
+```bash
+mvn exec:java -Dexec.mainClass="com.leolabs.threads.forkjoin.ParallelStreamLab"
+```
+**Key Takeaways**:
+- How parallel streams automatically use ForkJoinPool.commonPool()
+- Performance benefits for CPU-intensive operations on large datasets
+- Measuring speedup factor and efficiency
+- When to use parallel vs sequential streams
+
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -139,7 +152,7 @@ mvn exec:java -Dexec.mainClass="com.leolabs.threads.futures.FutureLab"
 4. **Run all labs sequentially**:
    ```bash
    # Create a simple script to run all demos
-   for lab in basics lifecycle safety performance background executors futures; do
+   for lab in basics lifecycle safety performance background executors futures forkjoin; do
      echo "=== Running $lab lab ==="
      mvn exec:java -Dexec.mainClass="com.leolabs.threads.$lab.*" 2>/dev/null || true
      echo ""
@@ -210,7 +223,8 @@ After mastering these labs, consider exploring:
 3. **Advanced Synchronization**: `ReentrantLock`, `Semaphore`, `CountDownLatch`
 4. **ScheduledExecutorService**: Delayed and periodic task execution
 5. **Virtual Threads**: Project Loom's lightweight threads (Java 19+)
-6. **Fork/Join Framework**: Work-stealing algorithms for parallel processing
+6. **Custom ForkJoinPool**: Creating and configuring custom thread pools
+7. **Reactive Programming**: Project Reactor or RxJava for async streams
 
 ## 🤝 Contributing
 
