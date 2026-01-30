@@ -29,8 +29,12 @@ src/main/java/com/leolabs/threads/
 │   └── RaceConditionLab.java
 ├── performance/               # Performance comparison
 │   └── PerformanceLab.java
-└── background/                # Daemon threads and shared memory
-    └── AutoSaveLab.java
+├── background/                # Daemon threads and shared memory
+│   └── AutoSaveLab.java
+├── executors/                 # Thread pools and executors
+│   └── ExecutorLab.java
+└── futures/                   # Callable and Future interfaces
+    └── FutureLab.java
 ```
 
 ## 🧪 Labs
@@ -88,6 +92,28 @@ mvn exec:java -Dexec.mainClass="com.leolabs.threads.background.AutoSaveLab"
 - Real-time access to shared memory without explicit data passing
 - The trade-off between convenience and thread safety in shared memory
 
+### 6. Thread Pools (`ExecutorLab.java`)
+**Concepts**: ExecutorService, FixedThreadPool, thread reuse
+```bash
+mvn exec:java -Dexec.mainClass="com.leolabs.threads.executors.ExecutorLab"
+```
+**Key Takeaways**:
+- How thread pools reuse threads for multiple tasks
+- Efficient resource management vs creating new threads per task
+- The importance of proper executor shutdown
+- Automatic task queuing and scheduling
+
+### 7. Callable & Future (`FutureLab.java`)
+**Concepts**: Callable interface, Future objects, asynchronous computation
+```bash
+mvn exec:java -Dexec.mainClass="com.leolabs.threads.futures.FutureLab"
+```
+**Key Takeaways**:
+- Callable can return values and throw exceptions (unlike Runnable)
+- Future represents the result of an asynchronous computation
+- Non-blocking task submission vs blocking result retrieval
+- Real-world analogy: restaurant order tickets
+
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -113,7 +139,7 @@ mvn exec:java -Dexec.mainClass="com.leolabs.threads.background.AutoSaveLab"
 4. **Run all labs sequentially**:
    ```bash
    # Create a simple script to run all demos
-   for lab in basics lifecycle safety performance background; do
+   for lab in basics lifecycle safety performance background executors futures; do
      echo "=== Running $lab lab ==="
      mvn exec:java -Dexec.mainClass="com.leolabs.threads.$lab.*" 2>/dev/null || true
      echo ""
@@ -179,11 +205,12 @@ mvn exec:java -Dexec.mainClass="com.leolabs.threads.background.AutoSaveLab"
 
 After mastering these labs, consider exploring:
 
-1. **Thread Pools**: `ExecutorService` and thread pool configurations
+1. **CompletableFuture**: Advanced asynchronous programming in modern Java
 2. **Concurrent Collections**: `ConcurrentHashMap`, `CopyOnWriteArrayList`
 3. **Advanced Synchronization**: `ReentrantLock`, `Semaphore`, `CountDownLatch`
-4. **CompletableFuture**: Asynchronous programming in modern Java
+4. **ScheduledExecutorService**: Delayed and periodic task execution
 5. **Virtual Threads**: Project Loom's lightweight threads (Java 19+)
+6. **Fork/Join Framework**: Work-stealing algorithms for parallel processing
 
 ## 🤝 Contributing
 
